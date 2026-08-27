@@ -1,17 +1,17 @@
-import './App.css'
-import ToDoList from './ToDoList'
+import "./App.css";
+import ListOfToDoLists from "./ListOfTodoLists";
 
 function App() {
   let todos = {
-    "Anna" : ["Buy milk", "Walk the dog", "Finish homework"],
-    "Bob" : ["Clean the house", "Do the laundry", "Cook dinner"]
-  }
+    Anna: ["Buy milk", "Walk the dog", "Finish homework"],
+    Bob: ["Clean the house", "Do the laundry", "Cook dinner"],
+  };
   return (
     <>
       <h1>ToDo list</h1>
-      <ToDoList name="Anna" todos={anna} />
+      <ListOfToDoLists lists={todos} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
