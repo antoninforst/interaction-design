@@ -1,6 +1,13 @@
-import { NewTodoForm } from "./NewTodoForm.jsx";
+import { NewTodoForm } from "../forms/NewTodoForm.jsx";
 
-export default function ToDoList({ name, todos, onAddTodo, onDeleteTodo }) {
+export default function ToDoList({
+  name,
+  todos,
+  onAddTodo,
+  onDeleteTodo,
+  onCheckTodo,
+  onDeleteUser,
+}) {
   // if in {} in unwraps it into so called props
   {
     /* 
@@ -17,10 +24,6 @@ export default function ToDoList({ name, todos, onAddTodo, onDeleteTodo }) {
   }
   */
   }
-  function handleCheck(todoIndex) {
-    onCheckTodo(name, todoIndex);
-  }
-
   function handleAdd(newTask) {
     onAddTodo(name, newTask);
   }
@@ -29,13 +32,22 @@ export default function ToDoList({ name, todos, onAddTodo, onDeleteTodo }) {
     <>
       <h2>
         <span className="name">{name}</span>'s ToDo list
+        <button type="button" onClick={() => onDeleteUser(name)}>
+          X
+        </button>
       </h2>
       <ul>
-        {todos.map((elem, index) => (
-          <li key={index}>
-            <input type="checkbox" onChange={() => handleCheck(index)} />
-            {elem}
-            <button type="button" onClick={() => onDeleteTodo(name, index)}>
+        {todos.map((elem) => (
+          <li key={elem.id}>
+            {
+              <input
+                type="checkbox"
+                onChange={() => onCheckTodo(name, elem.id)}
+                checked={elem.isDone}
+              />
+            }
+            {elem.name}
+            <button type="button" onClick={() => onDeleteTodo(name, elem.id)}>
               X
             </button>
           </li>
