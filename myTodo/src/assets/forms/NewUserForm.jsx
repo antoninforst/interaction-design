@@ -11,7 +11,7 @@ export default function NewUserForm({ database }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="NewTodoForm">
       <input
         id="new-user-name"
         placeholder="Enter a new user name"
@@ -19,7 +19,7 @@ export default function NewUserForm({ database }) {
         onChange={(e) => setNewUserName(e.target.value)}
       ></input>
       <button type="submit" disabled={!database.isUserValid(newUserName)}>
-        New user
+        Add user
       </button>
     </form>
   );

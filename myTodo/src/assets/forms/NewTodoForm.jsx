@@ -13,7 +13,7 @@ export function NewTodoForm({ onAddNewTodo }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="NewTodoForm">
       <input
         id="new-task-content"
         placeholder="Enter a new task"
@@ -22,7 +22,7 @@ export function NewTodoForm({ onAddNewTodo }) {
       />
 
       <button type="submit" disabled={newTask.trim() === ""}>
-        Add new task
+        Add task
       </button>
     </form>
   );

@@ -31,23 +31,29 @@ export default function ToDoList({
   return (
     <>
       <h2>
-        <span className="name">{name}</span>'s ToDo list
-        <button type="button" onClick={() => onDeleteUser(name)}>
+        <span className="TodoListName">{name}</span>'s ToDo list
+        <button
+          className="DeleteButton"
+          type="button"
+          onClick={() => onDeleteUser(name)}
+        >
           X
         </button>
       </h2>
-      <ul>
+      <ul className="TodoUl">
         {todos.map((elem) => (
-          <li key={elem.id}>
-            {
-              <input
-                type="checkbox"
-                onChange={() => onCheckTodo(name, elem.id)}
-                checked={elem.isDone}
-              />
-            }
-            {elem.name}
-            <button type="button" onClick={() => onDeleteTodo(name, elem.id)}>
+          <li
+            className={`TodoItem ${elem.isDone ? "TodoItemDone" : ""}`}
+            key={elem.id}
+            onClick={() => onCheckTodo(name, elem.id)}
+          >
+            {<input type="checkbox" checked={elem.isDone} />}
+            <span className="TodoItemName">{elem.name}</span>
+            <button
+              className="DeleteButton"
+              type="button"
+              onClick={() => onDeleteTodo(name, elem.id)}
+            >
               X
             </button>
           </li>

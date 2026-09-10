@@ -6,11 +6,11 @@ import useDatabase from "./Data.jsx";
 function App() {
   const db = useDatabase();
   return (
-    <>
-      <h1>ToDo list</h1>
+    <div className="App">
+      <h1>ToDo lists</h1>
       <NewUserForm database={db} />
       <ListOfToDoLists database={db} />
-    </>
+    </div>
   );
 }
 
